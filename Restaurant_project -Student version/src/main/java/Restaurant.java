@@ -65,6 +65,16 @@ public class Restaurant {
 
     }
 
+    //<Vishakha> Implementing the method for calculating total value of itmes
+    public int getItemTotal (String... input) {
+        int totalValue = 0;
+        for (String itemName : input) {
+            Item convertingStringToItem = findItemByName(itemName);// getting Item object for String entered
+            totalValue = totalValue + convertingStringToItem.getPrice();// returning sum of all items
+        }
+        return totalValue;
+    }
+
     public String getName() {
         return name;
     }

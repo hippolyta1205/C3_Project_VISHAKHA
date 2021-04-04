@@ -74,5 +74,19 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<Vishakha> TDD for implementing adding value functionality
+
+    @Test
+    public void method_to_return_the_order_value_given_the_name_of_the_items(){
+        restaurant.addToMenu("Sweet corn soup",119);//Arrange: Adding items to menu
+        restaurant.addToMenu("Vegetable lasagne", 269);// Arrange: Adding items to menu
+
+        int billAmount= restaurant.getItemTotal("Sweet corn soup","Vegetable lasagne");//Act: Calling the function
+
+        assertEquals(388,billAmount);//Assert: Checking the total is correct;
+    }
 }
